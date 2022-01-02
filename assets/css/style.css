@@ -110,7 +110,8 @@
   
   .app-title {
     font-size: 2rem;
-    background-color: rgb(49, 49, 218);
+    background: linear-gradient(rgb(21, 85, 202), rgb(20, 5, 102));
+    
     color: var(white);
     padding: 0;
     display:flex;
@@ -153,15 +154,21 @@
   }
   
   /* CARDS */
+  .card1 {
+    margin: 0 0 20px 0;
+    border-bottom: 6px solid var(--dark);
+    
+  }
+
   .card {
     margin: 0 0 20px 0;
-    border: 3px solid var(--dark);
-    border-radius: var(--border-radius);
+    
+    
   }
   
   .card-header {
-    color: var(--primary);
-    background-color: var(--dark);
+    color: var(black);
+    background-color: var(--primary);
     padding: 2.5%;
     border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
   }
@@ -189,6 +196,15 @@
     font-size: 1.2rem;
     border: 2px solid var(--light-dark);
     border-radius: var(--border-radius);
+  }
+
+  .list-group, .days {
+      height: 25vh;
+      margin-bottom: 25px;
+      border: 3px solid var(--dark);
+      color: var(black);
+      background-color: var(--primary);
+      padding: 15px 5px 15px 5px;
   }
   
   /* HEIGHT / WIDTH UTILS */
