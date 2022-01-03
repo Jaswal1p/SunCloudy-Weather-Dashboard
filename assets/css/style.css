@@ -120,11 +120,6 @@
     
   }
   
-  .location {
-    padding: 0;
-    list-style: none;
-  }
-  
   .list-item {
     margin-bottom: 10px;
     padding: 1.5%;
@@ -196,6 +191,17 @@
     font-size: 1.2rem;
     border: 2px solid var(--light-dark);
     border-radius: var(--border-radius);
+  }
+
+  .location-icon {
+     display: flex; 
+     justify-content: space-around;
+     align-items: center;
+  }
+
+  .location {
+    
+    list-style: none;
   }
 
   .location, .days {
