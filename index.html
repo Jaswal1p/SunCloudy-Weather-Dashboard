@@ -24,7 +24,7 @@
       <div class="card1">
         <h3 class="card-header">Search for a City:</h3>
           <form id="user-form" class="card-body">
-             <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
+             <input name="city" id="city" type="text" autofocus="true" class="form-input" />
              <button type="submit" class="btn">Search</button>
           </form>
       </div>
@@ -43,7 +43,22 @@
 
     <div class="col-12 col-md-8">
       
-      <div id="container" class="list-group">Display present weather parameters of selected city</div>
+      <div id="container" class="location">
+          <h2 class="location-timezone">Name</h2>
+          <p>Icon</p>
+          <div class="temperature">
+              <h5 class="degree">34</h5>
+          </div>
+          <div class="wind">
+            <h5 class="mph">MPH</h5>
+          </div>
+          <div class="humidity">
+            <h5 class="percent">%</h5>
+          </div>
+          <div class="uv-index">
+            <h5 class="fraction">green box</h5>
+          </div>
+      </div>
 
       <div id="forcast" class="days">
           <article class="day1">
