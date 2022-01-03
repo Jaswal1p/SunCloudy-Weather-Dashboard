@@ -110,7 +110,7 @@
   
   .app-title {
     font-size: 2rem;
-    background: linear-gradient(rgb(21, 85, 202), rgb(20, 5, 102));
+    background: linear-gradient(to right, rgb(21, 85, 202), rgb(20, 5, 102));
     
     color: var(white);
     padding: 0;
@@ -205,6 +205,25 @@
       color: var(black);
       background-color: var(--primary);
       padding: 15px 5px 15px 5px;
+  }
+
+  .days {
+      width: 100%;
+      
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    
+  }
+
+  .day1, .day2, .day3, .day4, .day5 {
+      width:18%;
+      color: white;
+      background-color: rgb(4, 4, 61);
+  }
+
+  .temp, .wind, .humidity {
+      color: white;
   }
   
   /* HEIGHT / WIDTH UTILS */
