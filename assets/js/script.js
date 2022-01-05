@@ -98,9 +98,19 @@ function weather(lat, lon) {
                 // fiveTemp.setAttribute('class', 'temp')
                 fiveTemp.textContent = data.daily[i].temp.day
                 fiveDayArticle.append(fiveTemp)
-            }
 
-        });
+                let fiveHumidity = document.createElement('div')
+                // fiveTemp.setAttribute('class', 'humidity')
+                fiveHumidity.textContent = data.daily[i].humidity.day
+                fiveDayArticle.append(fiveHumidity)
+
+                let fiveWind = document.createElement('h5')
+                // fiveWind.setAttribute('class', 'wind')
+                fiveWind.textContent = data.daily[i].speed.day
+                fiveDayArticle.append(fiveWind)
+
+        };
+})
 }
 
 
