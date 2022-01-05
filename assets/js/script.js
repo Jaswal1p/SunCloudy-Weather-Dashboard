@@ -82,7 +82,7 @@ function displayCityWeather(data) {
     cityNameEl.textContent = name
     tempEl.textContent = 'Temp: ' + temp + ' F'
     humidityEl.textContent = humidity + ' %'
-    windEl.textcontent = speed + 'MPH'
+    windEl.textContent = speed + 'MPH'
 
 }
 
