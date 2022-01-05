@@ -205,7 +205,7 @@
   }
 
   .location, .days {
-      height: 25vh;
+      height: 30vh;
       margin-bottom: 25px;
       border: 3px solid var(--dark);
       color: var(black);
@@ -229,7 +229,7 @@
   }
 
   .temp, .wind, .humidity {
-      color: white;
+      color: black;
   }
   
   /* HEIGHT / WIDTH UTILS */

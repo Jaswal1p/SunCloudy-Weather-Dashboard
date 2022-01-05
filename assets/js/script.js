@@ -1,9 +1,15 @@
 let userFormEl = document.querySelector("#user-form");
 let nameInputEl = document.querySelector("#city");
 let tempEl = document.querySelector("#temp");
+
 let containerEl = document.querySelector("#container");
 let cityNameEl = document.querySelector(".city-name");
 let fiveDayContainer = document.querySelector('#forecast')
+
+
+let humidityEl = document.querySelector("#humidity");
+let windEl = document.querySelector("#wind");
+
 
 
 let apiKey = "61d80f3cab144660935d5755dd2fb631";
@@ -75,6 +81,8 @@ function displayCityWeather(data) {
     // containerEl.textContent = name + description + temp;
     cityNameEl.textContent = name
     tempEl.textContent = 'Temp: ' + temp + ' F'
+    humidityEl.textContent = humidity + ' %'
+    windEl.textcontent = speed + 'MPH'
 
 }
 
@@ -99,14 +107,14 @@ function weather(lat, lon) {
                 fiveTemp.textContent = data.daily[i].temp.day
                 fiveDayArticle.append(fiveTemp)
 
-                let fiveHumidity = document.createElement('div')
+                let fiveHumidity = document.createElement('h5')
                 // fiveTemp.setAttribute('class', 'humidity')
-                fiveHumidity.textContent = data.daily[i].humidity.day
+                fiveHumidity.textContent = data.daily[i].humidity
                 fiveDayArticle.append(fiveHumidity)
 
                 let fiveWind = document.createElement('h5')
                 // fiveWind.setAttribute('class', 'wind')
-                fiveWind.textContent = data.daily[i].speed.day
+                fiveWind.textContent = data.daily[i].wind_speed
                 fiveDayArticle.append(fiveWind)
 
         };
