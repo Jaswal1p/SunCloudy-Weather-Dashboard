@@ -1,10 +1,11 @@
 let userFormEl = document.querySelector("#user-form");
 let nameInputEl = document.querySelector("#city");
-let temperatureEl = document.querySelector("#temperature");
+let tempEl = document.querySelector("#temp");
 let containerEl = document.querySelector("#container");
+
+
+ 
 let apiKey = "61d80f3cab144660935d5755dd2fb631";
-
-
 
 let formSubmitHandler = function(event) {
     //prevents page from refresh
@@ -14,7 +15,8 @@ let formSubmitHandler = function(event) {
     let city = nameInputEl.value.trim();
 
     if (city) {
-        cityWeather(city); {
+        getCityWeather(city); {
+       
         containerEl.textContent = '';
         nameInputEl.value = "";
       }
@@ -25,7 +27,7 @@ let formSubmitHandler = function(event) {
 
 }
 
-let cityWeather = function(city) {
+let getCityWeather = function(city) {
     //format the openweather API for city 
     
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=61d80f3cab144660935d5755dd2fb631"
@@ -35,20 +37,41 @@ let cityWeather = function(city) {
     fetch(apiUrl).then(function(response) {
           if (response.ok) {
              (response.json().then(function(data) {
-             console.log(data)  
-            }))
-          }
+                console.log(data);
+                displayCityWeather(data);
+                 
+            }));
+        }
           else {
-        alert("Error: This place not found")
-          }
-        
+            alert("Error: This place not found");
+          }  
     })
-          .catch(function(error) {
-              //.catch is getting chained onto the end of the '.then()' method
-              alert("unable to find this city");
-          });
-}   
+    .catch(function(error) {
+        //.catch is getting chained onto the end of the '.then()' method
+        alert("unable to connect to openweather");
+    });
+}          
+   
+
+displayCityWeather = function(data) {
+
+        const { name } = data;
+        const { icon, description } = data.weather[0];
+        const { temp, humidity } = data.main;
+        const { speed } = data.wind;
+        console.log(name, icon,description,temp,humidity,speed);
+
+        containerEl.textContent = '';
+        
+        containerEl.textContent = name + description + temp;
+        
+
+
+}
   
+
+
+
 
 
 
