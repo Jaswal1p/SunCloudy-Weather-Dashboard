@@ -2,6 +2,7 @@ let userFormEl = document.querySelector("#user-form");
 let nameInputEl = document.querySelector("#city");
 let tempEl = document.querySelector("#temp");
 let containerEl = document.querySelector("#container");
+let cityNameEl = document.querySelector("#city-name");
 
 
  
@@ -30,7 +31,7 @@ let formSubmitHandler = function(event) {
 let getCityWeather = function(city) {
     //format the openweather API for city 
     
-    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=61d80f3cab144660935d5755dd2fb631"
+    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=61d80f3cab144660935d5755dd2fb631"
 
     // making a request to the url
 
@@ -63,7 +64,11 @@ displayCityWeather = function(data) {
 
         containerEl.textContent = '';
         
+        
         containerEl.textContent = name + description + temp;
+        
+        
+        
         
 
 
@@ -79,7 +84,7 @@ let weather = {
     apiKey: "e52b9ef91ee8442a5c05329478d22900",
     fetch: function() {
         fetch(
-            "https://api.openweathermap.org/data/2.5/onecall?" + lat + "&" + lon + "&exclude=hourly,daily&appid=" + this.apiKey
+            "https://api.openweathermap.org/data/2.5/onecall?" + lat + "&" + lon + "&exclude=hourly,daily&units=metric&appid=" + this.apiKey
         )    
         .then((response) => response.json())
         .then((data) => console.log(data));
