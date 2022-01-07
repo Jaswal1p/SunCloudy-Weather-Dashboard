@@ -56,7 +56,7 @@ let saveCitySearch = function(city) {
     
     let btnbEl = document.createElement("li");
     btnbEl.className = "btnb";
-    btnbEl.textContent = "city";
+    btnbEl.textContent = city;
     saveCityEl.appendChild(btnbEl);
 }
 
