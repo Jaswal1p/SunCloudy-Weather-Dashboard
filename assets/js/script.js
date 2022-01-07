@@ -12,6 +12,23 @@ let windEl = document.querySelector("#wind");
 
 
 
+
+let saveCityEl = document.querySelector("#save-city");
+console.log(saveCityEl);
+
+let btnbEl = document.createElement("li");
+console.log(btnbEl);
+
+// buttonEl.addEventListener("click", function() {
+   // let btnbEl = document.createElement("li");
+    //btnbEl.className = "btnb";
+    //btnbEl.texteContent = "This is a new city";
+    //saveCityEl.appendChild(btnbEl);
+//});
+
+
+
+
 let apiKey = "61d80f3cab144660935d5755dd2fb631";
 
 let formSubmitHandler = function (event) {
@@ -27,11 +44,20 @@ let formSubmitHandler = function (event) {
             // containerEl.textContent = '';
             // nameInputEl.value = "";
         }
+        saveCitySearch(city);
     }
     else {
         alert("please enter correct city name");
     };
 
+}
+
+let saveCitySearch = function(city) {
+    
+    let btnbEl = document.createElement("li");
+    btnbEl.className = "btnb";
+    btnbEl.textContent = "city";
+    saveCityEl.appendChild(btnbEl);
 }
 
 let getCityWeather = function (city) {

@@ -231,7 +231,11 @@
   .temp, .wind, .humidity {
       color: black;
   }
-  
+
+
+  .ul {
+    padding: 0;
+  }
   /* HEIGHT / WIDTH UTILS */
   .min-100-vh {
     min-height: 100vh;
