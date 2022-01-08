@@ -4,8 +4,9 @@ let tempEl = document.querySelector("#temp");
 
 let containerEl = document.querySelector("#container");
 let cityNameEl = document.querySelector(".city-name");
-let fiveDayContainer = document.querySelector('#forecast')
-
+let fiveDayContainer = document.querySelector('#forecast');
+let descriptionEl = document.querySelector("#description");
+let iconEl = document.querySelector("#icon");
 
 let humidityEl = document.querySelector("#humidity");
 let windEl = document.querySelector("#wind");
@@ -96,6 +97,8 @@ function displayCityWeather(data) {
     console.log(name, icon, description, temp, humidity, speed);
     console.log(coord);
 
+    let dateEl = document.createElement('div')
+
     let lat = coord.lat;
     let lon = coord.lon;
 
@@ -106,6 +109,9 @@ function displayCityWeather(data) {
 
     // containerEl.textContent = name + description + temp;
     cityNameEl.textContent = name
+    dateEl.textContent = moment().format('MM/DD/YYYY')
+    // iconEl.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+    // descriptionEl.textContent = description
     tempEl.textContent = 'Temp: ' + temp + ' F'
     humidityEl.textContent = humidity + ' %'
     windEl.textContent = speed + 'MPH'
@@ -125,24 +131,25 @@ function weather(lat, lon) {
                 fiveDayContainer.append(fiveDayArticle)
 
                 let date = document.createElement('div')
-                date.textContent = moment().add(i + 1, 'days').format('dddd')
+                date.textContent = moment().add(i + 1, 'days').format('MM/DD/YYYY')
                 fiveDayArticle.append(date)
 
                 let fiveTemp = document.createElement('h5')
                 // fiveTemp.setAttribute('class', 'temp')
-                fiveTemp.textContent = data.daily[i].temp.day
+                fiveTemp.textContent = 'Temp: ' + data.daily[i].temp.day + ' F'
                 fiveDayArticle.append(fiveTemp)
-
-                let fiveHumidity = document.createElement('h5')
-                // fiveTemp.setAttribute('class', 'humidity')
-                fiveHumidity.textContent = data.daily[i].humidity
-                fiveDayArticle.append(fiveHumidity)
 
                 let fiveWind = document.createElement('h5')
                 // fiveWind.setAttribute('class', 'wind')
-                fiveWind.textContent = data.daily[i].wind_speed
+                fiveWind.textContent = 'Wind: ' + data.daily[i].wind_speed + ' MPH'
                 fiveDayArticle.append(fiveWind)
 
+                let fiveHumidity = document.createElement('h5')
+                // fiveTemp.setAttribute('class', 'humidity')
+                fiveHumidity.textContent = 'Humidity: ' + data.daily[i].humidity + ' %'
+                fiveDayArticle.append(fiveHumidity)
+
+                
         };
 })
 }
