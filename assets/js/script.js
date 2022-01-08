@@ -48,10 +48,13 @@ let formSubmitHandler = function (event) {
             // nameInputEl.value = "";
         }
         saveCitySearch(city);
+
     }
     else {
         alert("please enter correct city name");
     };
+  
+        nameInputEl.value = "";
 
 }
 
@@ -129,7 +132,14 @@ function displayCityWeather(data) {
     
 }
 
+function clearContainer(elementId) {
+    document.getElementById(elementId).innerHTML = "";
+} 
+
 function weather(lat, lon) {
+
+    clearContainer("forecast");
+
     const apiKey = "e52b9ef91ee8442a5c05329478d22900"
 
     fetch("https://api.openweathermap.org/data/2.5/onecall?&lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey)
@@ -140,11 +150,7 @@ function weather(lat, lon) {
         const { uvi } = data.current;
         console.log(uvi);
 
-        //uvi(uvi);
-
-
-
-            
+                    
             // uviEl.textContent = uvi 
 
             for (let i = 0; i < 5; i++) {
