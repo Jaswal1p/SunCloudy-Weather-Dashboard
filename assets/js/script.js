@@ -110,7 +110,7 @@ function displayCityWeather(data) {
     // containerEl.textContent = name + description + temp;
     cityNameEl.textContent = name
     dateEl.textContent = moment().format('MM/DD/YYYY')
-    // iconEl.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+    
     // descriptionEl.textContent = description
     tempEl.textContent = 'Temp: ' + temp + ' F'
     humidityEl.textContent = humidity + ' %'
