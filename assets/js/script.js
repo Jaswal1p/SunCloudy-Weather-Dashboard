@@ -4,12 +4,14 @@ let tempEl = document.querySelector("#temp");
 
 let containerEl = document.querySelector("#container");
 let cityNameEl = document.querySelector(".city-name");
+let dateTodayEl = document.querySelector("date-today");
 let fiveDayContainer = document.querySelector('#forecast');
-let descriptionEl = document.querySelector("#description");
+let descriptionEl = document.querySelector(".description");
 let iconEl = document.querySelector("#icon");
 
 let humidityEl = document.querySelector("#humidity");
 let windEl = document.querySelector("#wind");
+let uviEl = document.querySelector("#uvi"); 
 
 
 
@@ -90,6 +92,7 @@ let getCityWeather = function (city) {
 function displayCityWeather(data) {
 
     const { name } = data;
+    
     const { icon, description } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
@@ -97,24 +100,23 @@ function displayCityWeather(data) {
     console.log(name, icon, description, temp, humidity, speed);
     console.log(coord);
 
-    let dateEl = document.createElement('div')
+    //let dateEl = document.createElement('div')
 
     let lat = coord.lat;
     let lon = coord.lon;
 
     weather(lat, lon);
 
-    // containerEl.textContent = '';
 
-
-    // containerEl.textContent = name + description + temp;
     cityNameEl.textContent = name
-    dateEl.textContent = moment().format('MM/DD/YYYY')
-    
-    // descriptionEl.textContent = description
+    //dateTodayEl.textContent = moment().format('MM/DD/YYYY')
+    iconEl.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+    descriptionEl.textContent = description
     tempEl.textContent = 'Temp: ' + temp + ' F'
     humidityEl.textContent = humidity + ' %'
     windEl.textContent = speed + 'MPH'
+    
+
 
 }
 
@@ -125,6 +127,12 @@ function weather(lat, lon) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
+
+            const { uvi } = data.current;
+            console.log(uvi);
+
+            //uviEl.textContent = uvi 
+
             for (let i = 0; i < 5; i++) {
                 let fiveDayArticle = document.createElement('article')
                 fiveDayArticle.setAttribute('class', 'day'+ i+1)
@@ -133,6 +141,10 @@ function weather(lat, lon) {
                 let date = document.createElement('div')
                 date.textContent = moment().add(i + 1, 'days').format('MM/DD/YYYY')
                 fiveDayArticle.append(date)
+
+                let fiveIcon = document.createElement('img')
+                // fiveIcon.setAttribute('img')
+                fiveIcon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
 
                 let fiveTemp = document.createElement('h5')
                 // fiveTemp.setAttribute('class', 'temp')
