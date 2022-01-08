@@ -13,10 +13,10 @@ let windEl = document.querySelector("#wind");
 
 
 
-let saveCityEl = document.querySelector("#save-city");
-console.log(saveCityEl);
+let wrapperEl = document.querySelector("#wrapper");
+console.log(wrapperEl);
 
-let btnbEl = document.createElement("li");
+let btnbEl = document.createElement("button");
 console.log(btnbEl);
 
 // buttonEl.addEventListener("click", function() {
@@ -54,10 +54,10 @@ let formSubmitHandler = function (event) {
 
 let saveCitySearch = function(city) {
     
-    let btnbEl = document.createElement("li");
+    let btnbEl = document.createElement("button");
     btnbEl.className = "btnb";
     btnbEl.textContent = city;
-    saveCityEl.appendChild(btnbEl);
+    wrapperEl.appendChild(btnbEl);
 }
 
 let getCityWeather = function (city) {
