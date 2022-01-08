@@ -109,15 +109,21 @@ function displayCityWeather(data) {
 
 
     cityNameEl.textContent = name
-    //dateTodayEl.textContent = moment().format('MM/DD/YYYY')
+
+    document.getElementById('date-today').textContent = moment().format('MM/DD/YYYY');
+    
     iconEl.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+
     descriptionEl.textContent = description
+
     tempEl.textContent = 'Temp: ' + temp + ' F'
-    humidityEl.textContent = humidity + ' %'
-    windEl.textContent = speed + 'MPH'
+
+    humidityEl.textContent = 'Humidity: ' + humidity + ' %'
+
+    windEl.textContent = 'Wind: ' + speed + 'MPH'
     
 
-
+    //document.getElementById('date-today').textContent = moment().format('MM/DD/YYYY');
 }
 
 function weather(lat, lon) {
@@ -131,6 +137,7 @@ function weather(lat, lon) {
             const { uvi } = data.current;
             console.log(uvi);
 
+            
             //uviEl.textContent = uvi 
 
             for (let i = 0; i < 5; i++) {
