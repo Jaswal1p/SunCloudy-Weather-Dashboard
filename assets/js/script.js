@@ -97,6 +97,8 @@ function displayCityWeather(data) {
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
     const { coord } = data;
+    
+    
     console.log(name, icon, description, temp, humidity, speed);
     console.log(coord);
 
@@ -122,8 +124,9 @@ function displayCityWeather(data) {
 
     windEl.textContent = 'Wind: ' + speed + 'MPH'
     
+    //document.getElementById('uv').textContent = uvi
 
-    //document.getElementById('date-today').textContent = moment().format('MM/DD/YYYY');
+    
 }
 
 function weather(lat, lon) {
@@ -134,11 +137,15 @@ function weather(lat, lon) {
         .then((data) => {
             console.log(data)
 
-            const { uvi } = data.current;
-            console.log(uvi);
+        const { uvi } = data.current;
+        console.log(uvi);
+
+        //uvi(uvi);
+
+
 
             
-            //uviEl.textContent = uvi 
+            // uviEl.textContent = uvi 
 
             for (let i = 0; i < 5; i++) {
                 let fiveDayArticle = document.createElement('article')
