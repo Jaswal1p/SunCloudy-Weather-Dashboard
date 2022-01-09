@@ -59,8 +59,10 @@ let formSubmitHandler = function (event) {
 
 }
 
+let cities = [];
+
 let saveCitySearch = function(city) {
-    
+
     let btnbEl = document.createElement("a");
     btnbEl.className = "btnb";
 
@@ -69,14 +71,25 @@ let saveCitySearch = function(city) {
     btnbEl.textContent = city;
     wrapperEl.appendChild(btnbEl);
 
-    btnbEl.addEventListener("click", getCityWeather);
+    btnbEl.addEventListener("click", searchCityHandler);
+    console.log(getCityWeather);
 
     taskIdCounter++;
 };
 
+let searchCityHandler = function(event) {
 
+    event.preventDefault();
+    let city = btnbEl.value.trim();
+    getCityWeather(city);
+
+}
+    
 
 let getCityWeather = function (city) {
+     
+        
+
     //format the openweather API for city 
 
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=61d80f3cab144660935d5755dd2fb631"
@@ -172,9 +185,9 @@ function weather(lat, lon) {
                 date.textContent = moment().add(i + 1, 'days').format('MM/DD/YYYY')
                 fiveDayArticle.append(date)
 
-                let fiveIcon = document.createElement('img')
+                //let fiveIcon = document.createElement('img')
                 // fiveIcon.setAttribute('img')
-                fiveIcon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+                //fiveIcon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
 
                 let fiveTemp = document.createElement('h5')
                 // fiveTemp.setAttribute('class', 'temp')
@@ -199,3 +212,5 @@ function weather(lat, lon) {
 
 
 userFormEl.addEventListener("submit", formSubmitHandler);
+
+
