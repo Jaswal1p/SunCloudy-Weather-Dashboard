@@ -14,6 +14,8 @@ let humidityEl = document.querySelector("#humidity");
 let windEl = document.querySelector("#wind");
 let uviEl = document.querySelector("#uvi"); 
 
+let cities = [];
+
 
 
 
@@ -59,8 +61,6 @@ let formSubmitHandler = function (event) {
 
 }
 
-let cities = [];
-
 let saveCitySearch = function(city) {
 
     let btnbEl = document.createElement("a");
@@ -74,14 +74,20 @@ let saveCitySearch = function(city) {
     btnbEl.addEventListener("click", searchCityHandler);
     console.log(getCityWeather);
 
+    
     taskIdCounter++;
-};
+
+    
+}   
+
+let MyCityList = {
+    name: btnbEl.textContent
+}
+
 
 let searchCityHandler = function(event) {
 
-    event.preventDefault();
-    let city = btnbEl.value.trim();
-    getCityWeather(city);
+    getCityWeather(event.currentTarget.textContent);
 
 }
     
@@ -185,9 +191,9 @@ function weather(lat, lon) {
                 date.textContent = moment().add(i + 1, 'days').format('MM/DD/YYYY')
                 fiveDayArticle.append(date)
 
-                //let fiveIcon = document.createElement('img')
-                // fiveIcon.setAttribute('img')
-                //fiveIcon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+                let icon = document.createElement('img')
+                // icon.setAttribute('img')
+                 icon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
 
                 let fiveTemp = document.createElement('h5')
                 // fiveTemp.setAttribute('class', 'temp')
@@ -210,7 +216,9 @@ function weather(lat, lon) {
 }
 
 
-
+let saveCities = function() {
+    localStorage.setItem('MyCityList', JSON.stringify(cities));
+}
 userFormEl.addEventListener("submit", formSubmitHandler);
 
 
