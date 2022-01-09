@@ -191,9 +191,9 @@ function weather(lat, lon) {
                 date.textContent = moment().add(i + 1, 'days').format('MM/DD/YYYY')
                 fiveDayArticle.append(date)
 
-                let icon = document.createElement('img')
+                //let icon = document.createElement('img')
                 // icon.setAttribute('img')
-                 icon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+                // icon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
 
                 let fiveTemp = document.createElement('h5')
                 // fiveTemp.setAttribute('class', 'temp')
