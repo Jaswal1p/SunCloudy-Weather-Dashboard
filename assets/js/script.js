@@ -158,7 +158,7 @@ function displayCityWeather(data) {
     
     //document.getElementById('uv').textContent = uvi
 
-    
+    uvIndex.textContent = 
 }
 
 function clearContainer(elementId) {
@@ -178,6 +178,7 @@ function weather(lat, lon) {
 
         const { uvi } = data.current;
         console.log(uvi);
+        uvIndex(uvi);
 
                     
             // uviEl.textContent = uvi 
