@@ -156,9 +156,14 @@ function displayCityWeather(data) {
 
     windEl.textContent = 'Wind: ' + speed + 'MPH'
     
-    //document.getElementById('uv').textContent = uvi
+    
 
-    uvIndex.textContent = 
+    
+};
+
+function uvIndex(uvi) {
+    document.getElementById('uv').textContent = 'UV ' + 'Index: ' + uvi 
+
 }
 
 function clearContainer(elementId) {
