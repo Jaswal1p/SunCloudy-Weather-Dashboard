@@ -61,7 +61,7 @@ let formSubmitHandler = function (event) {
 
 let saveCitySearch = function(city) {
     
-    let btnbEl = document.createElement("button");
+    let btnbEl = document.createElement("a");
     btnbEl.className = "btnb";
 
     btnbEl.setAttribute("data-task-id", taskIdCounter);
@@ -69,8 +69,12 @@ let saveCitySearch = function(city) {
     btnbEl.textContent = city;
     wrapperEl.appendChild(btnbEl);
 
+    btnbEl.addEventListener("click", getCityWeather);
+
     taskIdCounter++;
 };
+
+
 
 let getCityWeather = function (city) {
     //format the openweather API for city 
