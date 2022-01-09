@@ -1,3 +1,4 @@
+var taskIdCounter = 0;
 let userFormEl = document.querySelector("#user-form");
 let nameInputEl = document.querySelector("#city");
 let tempEl = document.querySelector("#temp");
@@ -62,9 +63,14 @@ let saveCitySearch = function(city) {
     
     let btnbEl = document.createElement("button");
     btnbEl.className = "btnb";
+
+    btnbEl.setAttribute("data-task-id", taskIdCounter);
+
     btnbEl.textContent = city;
     wrapperEl.appendChild(btnbEl);
-}
+
+    taskIdCounter++;
+};
 
 let getCityWeather = function (city) {
     //format the openweather API for city 
