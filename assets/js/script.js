@@ -18,7 +18,6 @@ let cities = [];
 
 
 
-
 let wrapperEl = document.querySelector("#wrapper");
 console.log(wrapperEl);
 
@@ -200,17 +199,15 @@ function weather(lat, lon) {
 
                 // pull weather from json and create image
                  
-                let weatherEl = document.createElement('div')
+                let weatherEl = document.createElement('img')
 
                 let cityWeather = data.daily[i].weather[0].icon;
                  console.log(cityWeather)
                       
-                weatherEl.img = "https://openweathermap.org/img/wn/" + cityWeather + ".png";
-                // let icon = "https://openweathermap.org/img/wn/" + cityWeather + ".png";
-                               
-                // weatherEl.classList = "card-text"
-                // weatherEl.src = icon;
-                fiveDayArticle.append(weatherEl.img)
+                var icon = "https://openweathermap.org/img/wn/" + cityWeather + ".png";
+                
+                     weatherEl.setAttribute( 'src', icon)
+                     fiveDayArticle.append(weatherEl)
 
                 
                 
