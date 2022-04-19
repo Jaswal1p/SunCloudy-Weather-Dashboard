@@ -185,22 +185,35 @@ function weather(lat, lon) {
         console.log(uvi);
         uvIndex(uvi);
 
-                    
+                
             // uviEl.textContent = uvi 
 
             for (let i = 0; i < 5; i++) {
                 let fiveDayArticle = document.createElement('article')
-                fiveDayArticle.setAttribute('class', 'day'+ i+1)
+                fiveDayArticle.setAttribute('class', 'day' + i+1)
                 fiveDayContainer.append(fiveDayArticle)
 
                 let date = document.createElement('div')
                 date.textContent = moment().add(i + 1, 'days').format('MM/DD/YYYY')
                 fiveDayArticle.append(date)
 
-                //let icon = document.createElement('img')
-                // icon.setAttribute('img')
-                // icon.src = "https://openweathermap.org/img/wn/" + icon + ".png"
 
+                // pull weather from json and create image
+                 
+                let weatherEl = document.createElement('div')
+
+                let cityWeather = data.daily[i].weather[0].icon;
+                 console.log(cityWeather)
+                      
+                weatherEl.img = "https://openweathermap.org/img/wn/" + cityWeather + ".png";
+                // let icon = "https://openweathermap.org/img/wn/" + cityWeather + ".png";
+                               
+                // weatherEl.classList = "card-text"
+                // weatherEl.src = icon;
+                fiveDayArticle.append(weatherEl.img)
+
+                
+                
                 let fiveTemp = document.createElement('h5')
                 // fiveTemp.setAttribute('class', 'temp')
                 fiveTemp.textContent = 'Temp: ' + data.daily[i].temp.day + ' F'
@@ -226,3 +239,14 @@ let saveCities = function() {
     localStorage.setItem('MyCityList', JSON.stringify(cities));
 }
 userFormEl.addEventListener("submit", formSubmitHandler);
+
+
+
+
+
+
+
+
+
+
+// var weatherIcon = "http://openweathermap.org/img/w/" + cityWeather + ".png";
