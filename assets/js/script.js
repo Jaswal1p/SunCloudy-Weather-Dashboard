@@ -19,22 +19,13 @@ let cities = [];
 
 
 let wrapperEl = document.querySelector("#wrapper");
-console.log(wrapperEl);
+// console.log(wrapperEl);
 
 let btnbEl = document.createElement("button");
-console.log(btnbEl);
-
-// buttonEl.addEventListener("click", function() {
-   // let btnbEl = document.createElement("li");
-    //btnbEl.className = "btnb";
-    //btnbEl.texteContent = "This is a new city";
-    //saveCityEl.appendChild(btnbEl);
-//});
+// console.log(btnbEl);
 
 
-
-
-let apiKey = "61d80f3cab144660935d5755dd2fb631";
+// let apiKey = "61d80f3cab144660935d5755dd2fb631";
 
 let formSubmitHandler = function (event) {
     //prevents page from refresh
@@ -44,24 +35,27 @@ let formSubmitHandler = function (event) {
     let city = nameInputEl.value.trim();
 
     if (city) {
-        getCityWeather(city); {
-
-            // containerEl.textContent = '';
-            // nameInputEl.value = "";
-        }
-        saveCitySearch(city);
+        getCityWeather(city); 
+        cities.unshift({city});
+        
+        nameInputEl.value = "";
+        
 
     }
     else {
         alert("please enter correct city name");
     };
   
-        nameInputEl.value = "";
+    saveSearch();
+    pastSearch(city)
 
 }
 
-let saveCitySearch = function(city) {
-
+// let pastSearch = function(pastSearch){
+ 
+let pastSearch = function(city) {
+//let saveCitySearch = function(city) {
+    
     let btnbEl = document.createElement("a");
     btnbEl.className = "btnb";
 
@@ -75,9 +69,13 @@ let saveCitySearch = function(city) {
 
     
     taskIdCounter++;
-
+    
     
 }   
+
+// let saveSearch = function(){
+//     localStorage.setItem("cities", JSON.stringify(cities));
+// };
 
 let MyCityList = {
     name: btnbEl.textContent
@@ -157,7 +155,7 @@ function displayCityWeather(data) {
     
     
 
-    
+    saveCities();
 };
 
 function uvIndex(uvi) {
@@ -232,11 +230,22 @@ function weather(lat, lon) {
 }
 
 
-let saveCities = function() {
-    localStorage.setItem('MyCityList', JSON.stringify(cities));
-}
-userFormEl.addEventListener("submit", formSubmitHandler);
 
+let saveSearch = function() {
+    localStorage.setItem('cities', JSON.stringify(cities));
+}
+
+var pastSearchHandler = function(event){
+    var city = event.target.getAttribute("data-task-id")
+    if(city){
+        getCityWeather(city);
+        
+    }
+}
+
+
+userFormEl.addEventListener("submit", formSubmitHandler);
+btnbEl.addEventListener("click", searchCityHandler);
 
 
 
