@@ -32,4 +32,3 @@ The url for my deployed website is: https://jaswal1p.github.io/SunCloudy-Weather
 
 
 The url for my gitHub repository is:  https://github.com/Jaswal1p/SunCloudy-Weather-Dashboard.git
-
