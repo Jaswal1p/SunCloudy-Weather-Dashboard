@@ -25,7 +25,7 @@ This was a complex project for me. I subdivided the project into -
 
  12. Also worked on UV index display based on its value at <2 , 2-8 or above 8. This toook effort. Google and you tube helped !!         
 
-After complition of coding, my weather dashboard looks like this: ![WireFrametoMockup](https://user-images.githubusercontent.com/92233527/148697809-8bdfa499-3dfb-4b1b-9ec0-f8d2b1424857.png)
+Final version of my weather dashboard looks like this: ![WireFrametoMockup](https://user-images.githubusercontent.com/92233527/164393148-4b53a599-b99e-46a4-9ae9-564080952a02.png)
 
 
 The url for my deployed website is: https://jaswal1p.github.io/SunCloudy-Weather-Dashboard/
