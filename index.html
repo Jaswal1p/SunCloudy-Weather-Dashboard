@@ -1,103 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Weather Dashboard</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Weather Dashboard</title>
-</head>
+        <link rel="stylesheet" href="./Assets/CSS/reset.css">
 
-<body class="flex-column min-100-vh">
-  <header class="hero">
-    <h1 class="app-title">Weather Dashboard</h1>
-  </header>
+        <!-- Bootstrap CDN link -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+        <!-- Font Awesome link -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="./Assets/CSS/style.css">
 
-  <main class="flex-row justify-space-between">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="./Assets/Images/sun-favicon.png">
 
-    <div class="col-12 col-md-4">
+         <!-- Sets viewport scaling to be consistent across devices -->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 
-      <div class="card1">
-        <h3 class="card-header">Search for a City:</h3>
-          <form id="user-form" class="card-body">
-             <input name="city" id="city" type="text" autofocus="true" class="form-input" value=""/>
-             <button type="submit" class="btn">Search</button>
-          </form>
-      </div>
+    <body>
+        <nav class="navbar p-3">
+            <h1 class="center"> </i> Weather Dashboard <i></i> </h1>
+        </nav>
 
-      <div class="card">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h4 class="card-header">Search By City</h3>
+                        <form id="search-form" class="card-body">
+                            <!-- Input accept cities to search for from user -->
+                            <input name="city-name" id="city-name" type="text" class="form-input my-2" />
+                            <button type="submit" class="btn btn-info">Search</button>
+                        </form>
+                      </div>
+                
+                      <div id="previous-searches" class="card">
+                        <h4 class="card-header">Previous Searches</h3>
+                        <!-- Empty div to hold previous search buttons from script.js -->
+                        <div class="card-body d-inline-flex flex-wrap">
+                            
+                        </div>
+                      </div>
+                </div>
+                <!-- Forecast column -->
+                <div class="cold-12 col-md-8 col-lg-9">
+                    <!-- Current Forecast Container -->
+                    <div class="card" id="current-forecast">
+                        <h3 class="card-header"></h3>
+                        <div class="card-body">
+                            <!-- Empty ul to hold current weather lis from script.js -->
+                            <div id="conditions">
 
-        <h3 class="card-header">Search History</h3>
-
-        <!-- <ul class="search-wrapper"  id="save-city">
-          <li class="btnb" type="submit" id="S-city" onclick="city" style="cursor: pointer;">A new city goes here!</li>
-        </ul>-->
-
-        <div class="search-wrapper" id="wrapper">
-          
-         <a class="btnb" id="save-city" type="submit" onclick="city" style="cursor: pointer;"></a>
-          
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="p-2 mt-3" id="five-day">5-Day Forecast</h4>
+                    <!-- Empty div to hold dailyCards from script.js -->
+                    <div class="d-inline-flex flex-wrap p-2" id="daily-forecast">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
 
-     
+        <!-- Moment.js link -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-      </div>
-
-    </div>
-
-    <div class="col-12 col-md-8">
-      <div id="container" class="location">
-        <div class="location-icon">
-            <h2 class="city-name" id="location-datetoday">Name</h2>
-            <h2 class="today" id="date-today"></h2>
-            <img class="icon" id="icon">
-        </div> 
-        <div id='descrip' class="description">
-            description
-        </div>
-
-        <div id="temp" class="temperature">
-            Temp: 34 F
-        </div>
-
-        <div id="wind" class="wind">
-          Wind: mph
-        </div>
-
-        <div id="humidity" class="humidity">
-          Humidity: %
-        </div>
-
-        <div id="uv" class="uv-index">
-          UV Index
-        </div>
-      </div>
-
-
-
-      <div id="forecast" class="days">
-          <!-- <article class="day1">
-            <div>date</div>
-            <img>
-            <h5 class="temp">Temp</h5>
-            <br>
-            <h5 class="wind">Wind</h5>
-            <br>
-            <h5 class="humidity">Humidity</h5>
-          </article> -->
-          
-      </div>
-
-    </div>
-
-  </main>
-  
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
-  <script src="./assets/js/script.js"></script>
-</body>
-
-</html>
+        <!-- Local JS file -->
+        <script src="./Assets/JS/script.js"></script>
+    </body>
+</html> 
