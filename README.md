@@ -21,7 +21,9 @@ This was a complex project for me. I subdivided the project into -
      D: then created function to catch the first function so it displays the current and future data !!! worked 16 hrs straight on that stumbling along many times.
      C: got it to work.
 
- 11. My work is ongong for local storage. Right now I have successfully displayed empty array in localStorage. i need to create Objectdata array to save JSON.         
+ 11. I finally finished my work on local storage, which was a major knowledege gap. I needed to know this for module 22 to work with state and work on MERN project as bootcamp is coming to an end. After many failed attempts, I was able to store data in local storage as strings, then retrieve it, convert to object by parse method and finally was able to integrate on the webpage, where it persists on reloading the page.
+
+ 12. Also worked on UV index display based on its value at <2 , 2-8 or above 8. This toook effort. Google and you tube helped !!         
 
 After complition of coding, my weather dashboard looks like this: ![WireFrametoMockup](https://user-images.githubusercontent.com/92233527/148697809-8bdfa499-3dfb-4b1b-9ec0-f8d2b1424857.png)
 
