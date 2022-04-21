@@ -75,9 +75,9 @@ const callOpenWeather = (city) => {
 
                 // Creates four list items to hold current weather
                 for (let i = 0; i < 4; i++) {
-                    const li = document.createElement("li");
-                    li.classList.add("mb-2");
-                    liArray.push(li);
+                    const div = document.createElement("div");
+                    div.classList.add("mb-2");
+                    liArray.push(div);
                 }
 
                 // Populates contents of list items with properties of json object
@@ -115,12 +115,12 @@ const callOpenWeather = (city) => {
                     // Populates forecast data for each card. Uses index number + 1 to advance moment.js call from current date by one day (pulls dates for next 5 days after today)
                     dailyCard.innerHTML = `
                     <div class="p-2 m-2 card bg-info text-white">
-                        <h5>${moment().add(i + 1, "days").format("MM/DD/YYYY")}</h5>
-                        <ul id="conditions">
-                            <li><img src='https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png' alt="Weather icon" class="mx-auto"></li>
-                            <li>Temp: ${Math.floor(data.daily[i].temp.day)} &deg;F</li>
-                            <li>Humidity: ${data.daily[i].humidity}%</li>
-                        </ul>
+                        <h6>${moment().add(i + 1, "days").format("MM/DD/YYYY")}</h6>
+                        <div id="conditions">
+                            <div><img src='https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png' alt="Weather icon" class="mx-auto"></div>
+                            <div>Temp: ${Math.floor(data.daily[i].temp.day)} &deg;F</div>
+                            <div>Humidity: ${data.daily[i].humidity}%</div>
+                        </div>
                     </div>`;
 
                     // Pushes card into dailyArray to then be appended to container
