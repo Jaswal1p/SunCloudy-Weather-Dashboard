@@ -18,7 +18,7 @@ This was a complex project for me. I subdivided the project into -
      A: I made all dynamically generated city fields.
      B: gave them event listeners. 
      C: Then gave them dynamically generated unique ID. 
-     D: then created function to catch the first function so it displays the current and future data !!! worked 16 hrs straight on that stumbling along many times.
+     D: then created function to catch the first function so it displays the current and future data !!! 
      C: got it to work.
 
  11. I finally finished my work on local storage, which was a major knowledege gap. I needed to know this for module 22 to work with state and work on MERN project as bootcamp is coming to an end. After many failed attempts, I was able to store data in local storage as strings, then retrieve it, convert to object by parse method and finally was able to integrate on the webpage, where it persists on reloading the page.
