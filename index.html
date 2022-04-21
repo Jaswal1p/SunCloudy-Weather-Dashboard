@@ -24,22 +24,20 @@
       <div class="card1">
         <h3 class="card-header">Search for a City:</h3>
           <form id="user-form" class="card-body">
-             <input name="city" id="city" type="text" autofocus="true" class="form-input" value=""/>
+             <input name="city" id="city-name" type="text" autofocus="true" class="form-input" value=""/>
              <button type="submit" class="btn">Search</button>
           </form>
       </div>
 
-      <div class="card">
+      <div id="previous-searches" class="card">
 
         <h3 class="card-header">Search History</h3>
 
-        <!-- <ul class="search-wrapper"  id="save-city">
-          <li class="btnb" type="submit" id="S-city" onclick="city" style="cursor: pointer;">A new city goes here!</li>
-        </ul>-->
+        <!-- Empty div to hold previous search buttons from script.js -->
 
         <div class="search-wrapper" id="wrapper">
           
-         <a class="btnb" id="save-city" type="submit" onclick="city" style="cursor: pointer;"></a>
+         
           
         </div>
 
@@ -50,7 +48,7 @@
     </div>
 
     <div class="col-12 col-md-8">
-      <div id="container" class="location">
+      <div id="current-forecast" class="locationn">
         <div class="location-icon">
             <h2 class="city-name" id="location-datetoday">Name</h2>
             <h2 class="today" id="date-today"></h2>
@@ -75,7 +73,7 @@
         <div id="uv" class="uv-index">
           UV Index
         </div>
-      </div>
+    </div>
 
 
 

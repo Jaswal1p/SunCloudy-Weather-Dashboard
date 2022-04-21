@@ -51,43 +51,7 @@ let formSubmitHandler = function (event) {
 
 }
 
-// let pastSearch = function(pastSearch){
  
-let pastSearch = function(city) {
-//let saveCitySearch = function(city) {
-    
-    let btnbEl = document.createElement("a");
-    btnbEl.className = "btnb";
-
-    btnbEl.setAttribute("data-task-id", taskIdCounter);
-
-    btnbEl.textContent = city;
-    wrapperEl.appendChild(btnbEl);
-
-    btnbEl.addEventListener("click", searchCityHandler);
-    console.log(getCityWeather);
-
-    
-    taskIdCounter++;
-    
-    
-}   
-
-// let saveSearch = function(){
-//     localStorage.setItem("cities", JSON.stringify(cities));
-// };
-
-let MyCityList = {
-    name: btnbEl.textContent
-}
-
-
-let searchCityHandler = function(event) {
-
-    getCityWeather(event.currentTarget.textContent);
-
-}
-    
 
 let getCityWeather = function (city) {
      
@@ -143,9 +107,9 @@ function displayCityWeather(data) {
 
     document.getElementById('date-today').textContent = moment().format('MM/DD/YYYY');
     
-    iconEl.src = "https://openweathermap.org/img/wn/" + icon + ".png"
+    iconEl.src = "https://openweathermap.org/img/w/" + icon + ".png"
 
-    descriptionEl.textContent = description
+    descriptionEl.textContent = 'Conditions: ' + description
 
     tempEl.textContent = 'Temp: ' + temp + ' F'
 
@@ -155,13 +119,17 @@ function displayCityWeather(data) {
     
     
 
-    saveCities();
+    // saveCities();
+    saveSearch();
 };
 
 function uvIndex(uvi) {
     document.getElementById('uv').textContent = 'UV ' + 'Index: ' + uvi 
+    
 
 }
+
+
 
 function clearContainer(elementId) {
     document.getElementById(elementId).innerHTML = "";
@@ -202,7 +170,7 @@ function weather(lat, lon) {
                 let cityWeather = data.daily[i].weather[0].icon;
                  console.log(cityWeather)
                       
-                var icon = "https://openweathermap.org/img/wn/" + cityWeather + ".png";
+                var icon = "https://openweathermap.org/img/w/" + cityWeather + ".png";
                 
                      weatherEl.setAttribute( 'src', icon)
                      fiveDayArticle.append(weatherEl)
@@ -235,6 +203,37 @@ let saveSearch = function() {
     localStorage.setItem('cities', JSON.stringify(cities));
 }
 
+let pastSearch = function(city) {
+    //let saveCitySearch = function(city) {
+        
+        let btnbEl = document.createElement("a");
+        btnbEl.className = "btnb";
+    
+        btnbEl.setAttribute("data-task-id", taskIdCounter);
+    
+        btnbEl.textContent = city;
+        wrapperEl.appendChild(btnbEl);
+    
+        btnbEl.addEventListener("click", searchCityHandler);
+        console.log(getCityWeather);
+    
+        
+        taskIdCounter++;
+        
+        
+    }  
+
+    let MyCityList = {
+        name: btnbEl.textContent
+    }
+    
+    
+    let searchCityHandler = function(event) {
+    
+        getCityWeather(event.currentTarget.textContent);
+    
+    }
+
 var pastSearchHandler = function(event){
     var city = event.target.getAttribute("data-task-id")
     if(city){
@@ -243,9 +242,31 @@ var pastSearchHandler = function(event){
     }
 }
 
+var loadCities = function () {
+    var savedCities = localStorage.getItem("cities");
+    console.log();
+
+    if (!savedCities) {
+        return false;
+    }
+    console.log("saved cities found!");
+
+    savedCities = JSON.parse(savedCities);
+
+    for (var i = 0; i < savedCities.length; i++) {
+        // pass each task object into the `createTaskEl()` function
+        createCityEl(savedCities[i]);
+      } 
+
+};
+
+
+
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 btnbEl.addEventListener("click", searchCityHandler);
+
+loadCities();
 
 
 
